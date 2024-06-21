@@ -37,7 +37,7 @@ public class Lobby {
     }
 
     public boolean startGame(String mapName) {
-        if (players.size() < 1 || players.size() > 6) return false;
+        if (players.size() < 2 || players.size() > 6) return false;
         inGame = true;
 
         gameThread = new Thread(() -> {

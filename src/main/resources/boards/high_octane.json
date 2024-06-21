@@ -39,7 +39,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "EAST"
           }
@@ -68,7 +68,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "EAST"
           }
@@ -81,7 +81,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.EnergyCubeField",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.EnergyCubeField",
           "INSTANCE": {}
         }
       ],
@@ -102,7 +102,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.PushPanel",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.PushPanel",
           "INSTANCE": {
             "heading": "NORTH",
             "pushTime": "EVEN"
@@ -130,7 +130,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH",
             "belt": 2
@@ -144,7 +144,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.EnergyCubeField",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.EnergyCubeField",
           "INSTANCE": {}
         }
       ],
@@ -155,7 +155,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "EAST",
             "belt": 2
@@ -169,7 +169,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "EAST",
             "belt": 2
@@ -183,7 +183,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "EAST",
             "belt": 2
@@ -197,7 +197,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "EAST",
             "belt": 2
@@ -211,7 +211,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "EAST",
             "belt": 2
@@ -225,7 +225,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "EAST",
             "belt": 2
@@ -239,7 +239,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH",
             "belt": 2,
@@ -262,7 +262,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH",
             "belt": 2
@@ -276,7 +276,7 @@
       "walls": ["WEST", "NORTH"],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.EnergyCubeField",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.EnergyCubeField",
           "INSTANCE": {}
         }
       ],
@@ -287,7 +287,7 @@
       "walls": ["EAST", "NORTH"],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.EnergyCubeField",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.EnergyCubeField",
           "INSTANCE": {}
         }
       ],
@@ -298,7 +298,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH",
             "belt": 2
@@ -312,7 +312,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.Checkpoint",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.Checkpoint",
           "INSTANCE": {
             "id": 1
           }
@@ -325,7 +325,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "SOUTH",
             "belt": 2
@@ -339,7 +339,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH",
             "belt": 2
@@ -353,7 +353,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "SOUTH",
             "belt": 2
@@ -367,7 +367,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH",
             "belt": 2
@@ -381,7 +381,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "SOUTH",
             "belt": 2
@@ -395,7 +395,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.Checkpoint",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.Checkpoint",
           "INSTANCE": {
             "id": 2
           }
@@ -408,7 +408,7 @@
       "walls": ["WEST", "SOUTH"],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.EnergyCubeField",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.EnergyCubeField",
           "INSTANCE": {}
         }
       ],
@@ -419,7 +419,7 @@
       "walls": ["EAST", "SOUTH"],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.EnergyCubeField",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.EnergyCubeField",
           "INSTANCE": {}
         }
       ],
@@ -430,7 +430,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "SOUTH",
             "belt": 2
@@ -451,7 +451,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "SOUTH",
             "belt": 2,
@@ -467,7 +467,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "WEST",
             "belt": 2
@@ -481,7 +481,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "WEST",
             "belt": 2
@@ -495,7 +495,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "WEST",
             "belt": 2
@@ -509,7 +509,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "WEST",
             "belt": 2
@@ -523,7 +523,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "WEST",
             "belt": 2
@@ -537,7 +537,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.EnergyCubeField",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.EnergyCubeField",
           "INSTANCE": {}
         }
       ],
@@ -548,7 +548,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "SOUTH",
             "belt": 2
@@ -568,7 +568,7 @@
       "walls": ["NORTH"],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.PushPanel",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.PushPanel",
           "INSTANCE": {
             "heading": "SOUTH",
             "pushTime": "EVEN"
@@ -588,7 +588,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.EnergyCubeField",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.EnergyCubeField",
           "INSTANCE": {}
         }
       ],

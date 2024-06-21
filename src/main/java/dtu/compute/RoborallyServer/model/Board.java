@@ -21,6 +21,7 @@
  */
 package dtu.compute.RoborallyServer.model;
 
+import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -58,6 +59,8 @@ public class Board {
 
     private boolean stepMode;
     public int checkpoints = 0;
+    @Getter
+    private List<Space> startFields = new ArrayList<>();
 
     public Board(int width, int height) {
         this.width = width;
@@ -93,6 +96,11 @@ public class Board {
         } else {
             return null;
         }
+    }
+
+    public void addStartField(Space startField) {
+        startFields.add(startField);
+        startField.setStartField(true);
     }
 
     /**

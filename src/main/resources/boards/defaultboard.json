@@ -1,6 +1,12 @@
 {
   "width": 8,
   "height": 8,
+  "antennaX": 0,
+  "antennaY": 1,
+  "antennaHeading": 3,
+  "rebootStationX": 0,
+  "rebootStationY": 2,
+  "rebootStationHeading": 0,
   "spaces": [
     {
       "walls": [
@@ -8,7 +14,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "WEST"
           }
@@ -23,7 +29,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.Laser",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.Laser",
           "INSTANCE": {
             "heading": "EAST",
             "lazer": 1
@@ -39,7 +45,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.Laser",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.Laser",
           "INSTANCE": {
             "heading": "EAST",
             "lazer": 1
@@ -53,7 +59,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.Gear",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.Gear",
           "INSTANCE": {
             "heading": "EAST"
           }
@@ -66,7 +72,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.PushPanel",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.PushPanel",
           "INSTANCE": {
             "heading": "SOUTH"
           }
@@ -79,7 +85,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.Gear",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.Gear",
           "INSTANCE": {
             "heading": "WEST"
           }
@@ -94,7 +100,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "WEST"
           }
@@ -109,7 +115,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH"
           }
@@ -122,7 +128,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH"
           }
@@ -135,7 +141,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH"
           }
@@ -148,7 +154,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH"
           }
@@ -161,7 +167,7 @@
       "walls": [],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH"
           }
@@ -176,7 +182,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "EAST"
           }
@@ -191,7 +197,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "SOUTH"
           }
@@ -206,7 +212,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "WEST"
           }
@@ -221,7 +227,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "NORTH"
           }
@@ -236,7 +242,7 @@
       ],
       "actions": [
         {
-          "CLASSNAME": "dtu.compute.roborallyServer.controller.ConveyorBelt",
+          "CLASSNAME": "dtu.compute.RoborallyServer.controller.ConveyorBelt",
           "INSTANCE": {
             "heading": "SOUTH"
           }

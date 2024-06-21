@@ -22,6 +22,8 @@
 package dtu.compute.RoborallyServer.model;
 
 import dtu.compute.RoborallyServer.controller.FieldAction;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,8 @@ import java.util.List;
  * @author Ekkart Kindler, ekki@dtu.dk
  *
  */
+@Getter
+@Setter
 public class Space {
 
     private Player player;
@@ -45,6 +49,7 @@ public class Space {
     public final int y;
 
     private boolean isPit;
+    private boolean startField = false;
 
     public boolean isPit() {
         return isPit;
@@ -61,10 +66,6 @@ public class Space {
         player = null;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
     public void setPlayer(Player player) {
         Player oldPlayer = this.player;
         if (player != oldPlayer &&
@@ -78,14 +79,6 @@ public class Space {
                 player.setSpace(this);
             }
         }
-    }
-
-    public List<Heading> getWalls() {
-        return walls;
-    }
-
-    public List<FieldAction> getActions() {
-        return actions;
     }
 
     public void addAction(FieldAction action) {

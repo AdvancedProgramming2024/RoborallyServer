@@ -9,6 +9,13 @@
   "rebootStationHeading": 0,
   "spaces": [
     {
+      "walls": [],
+      "actions": [],
+      "x": 0,
+      "y": 3,
+      "startField": true
+    },
+    {
       "walls": [
         "NORTH",
         "WEST",
@@ -20,6 +27,20 @@
       "y": 4
     },
     {
+      "walls": [],
+      "actions": [],
+      "x": 0,
+      "y": 6,
+      "startField": true
+    },
+    {
+      "walls": [],
+      "actions": [],
+      "x": 1,
+      "y": 1,
+      "startField": true
+    },
+    {
       "walls": [
         "NORTH"
       ],
@@ -28,12 +49,33 @@
       "y": 2
     },
     {
+      "walls": [],
+      "actions": [],
+      "x": 1,
+      "y": 4,
+      "startField": true
+    },
+    {
+      "walls": [],
+      "actions": [],
+      "x": 1,
+      "y": 5,
+      "startField": true
+    },
+    {
       "walls": [
         "SOUTH"
       ],
       "actions": [],
       "x": 1,
       "y": 7
+    },
+    {
+      "walls": [],
+      "actions": [],
+      "x": 1,
+      "y": 8,
+      "startField": true
     },
     {
       "walls": [],

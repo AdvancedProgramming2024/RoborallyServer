@@ -35,7 +35,8 @@ public class RoboRallyServer {
         for (int i = 0; i < players.size(); i++) {
             Player player = new Player(board, PLAYER_COLORS.get(i), players.get(i), i);
             board.addPlayer(player);
-            player.setSpace(board.getSpace(0, i));
+            Random rand = new Random();
+            player.setSpace(board.getStartFields().get(rand.nextInt(board.getStartFields().size())));
             player.setHeading(Heading.EAST);
         }
         gameController = new GameController(board, this);

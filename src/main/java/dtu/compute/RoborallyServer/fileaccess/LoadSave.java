@@ -88,6 +88,9 @@ public class LoadSave {
                     spaceTemplate.actions.forEach(space::addAction);
                     spaceTemplate.walls.forEach(space::addWall);
                     space.setPit(spaceTemplate.isPit);
+                    if (spaceTemplate.startField) {
+                        result.addStartField(space);
+                    }
                 }
             }
 			reader.close();
@@ -136,6 +139,9 @@ public class LoadSave {
                 space.getActions().addAll(spaceTemplate.actions);
                 space.getWalls().addAll(spaceTemplate.walls);
                 space.setPit(spaceTemplate.isPit);
+                if (spaceTemplate.startField) {
+                    board.addStartField(space);
+                }
             }
         }
 
@@ -297,6 +303,7 @@ public class LoadSave {
         spaceTemplate.walls.addAll(space.getWalls());
         spaceTemplate.isPit = space.isPit();
         spaceTemplate.player = space.getPlayer() == null ? -1 : board.getPlayerNumber(space.getPlayer());
+        spaceTemplate.startField = board.getStartFields().contains(space);
         return spaceTemplate;
     }
 /*
