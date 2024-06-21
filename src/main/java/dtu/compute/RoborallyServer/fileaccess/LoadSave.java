@@ -173,7 +173,7 @@ public class LoadSave {
             player.setRebooting(playerTemplate.rebooting);
             board.addPlayer(player);
         }
-        
+
         GameController gameController = new GameController(board, server);
         server.setGameController(gameController);
         gameController.commandCardController.setCurrentCommand(gameState.currentCommand != -1 ? Command.values()[gameState.currentCommand] : null);
