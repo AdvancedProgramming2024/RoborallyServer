@@ -119,20 +119,6 @@ public class LoadSave {
     public static GameController loadGameState(GameTemplate gameState, RoboRallyServer server) {
         Board board = new Board(gameState.board.width, gameState.board.height);
 
-        GameController gameController = new GameController(board, server);
-        server.setGameController(gameController);
-        gameController.commandCardController.setCurrentCommand(gameState.currentCommand != -1 ? Command.values()[gameState.currentCommand] : null);
-
-        board.setGameId(gameState.gameId);
-
-        board.setAntenna(gameState.board.antennaX, gameState.board.antennaY, Heading.values()[gameState.board.antennaHeading]);
-        board.setRebootStation(gameState.board.rebootStationX, gameState.board.rebootStationY, Heading.values()[gameState.board.rebootStationHeading]);
-
-        for (int i=0; i<gameState.upgradeShop.size(); i++) {
-            gameController.getUpgradeShop()[i].setCard(gameState.upgradeShop.get(i) == null ?
-                    null : new UpgradeCard(Upgrade.values()[gameState.upgradeShop.get(i)]));
-        }
-
         for (SpaceTemplate spaceTemplate: gameState.board.spaces) {
             Space space = board.getSpace(spaceTemplate.x, spaceTemplate.y);
             if (space != null) {
@@ -186,6 +172,20 @@ public class LoadSave {
             player.setEnergyCubes(playerTemplate.energyBank);
             player.setRebooting(playerTemplate.rebooting);
             board.addPlayer(player);
+        }
+        
+        GameController gameController = new GameController(board, server);
+        server.setGameController(gameController);
+        gameController.commandCardController.setCurrentCommand(gameState.currentCommand != -1 ? Command.values()[gameState.currentCommand] : null);
+
+        board.setGameId(gameState.gameId);
+
+        board.setAntenna(gameState.board.antennaX, gameState.board.antennaY, Heading.values()[gameState.board.antennaHeading]);
+        board.setRebootStation(gameState.board.rebootStationX, gameState.board.rebootStationY, Heading.values()[gameState.board.rebootStationHeading]);
+
+        for (int i=0; i<gameState.upgradeShop.size(); i++) {
+            gameController.getUpgradeShop()[i].setCard(gameState.upgradeShop.get(i) == null ?
+                    null : new UpgradeCard(Upgrade.values()[gameState.upgradeShop.get(i)]));
         }
 
         board.setCurrentPlayer(board.getPlayer(gameState.currentPlayer));
