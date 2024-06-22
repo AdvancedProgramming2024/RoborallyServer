@@ -32,9 +32,8 @@ public class Lobby {
         return 0;
     }
 
-    public int lobbyFull() {
-        if (players.size() >= 6) return 1;
-        return 0;
+    public boolean lobbyFull() {
+        return players.size() > 6;
     }
 
     public void removePlayer(String playerName) {

@@ -87,7 +87,7 @@ public class Server {
             return responseCenter.notFound();
         }
 
-        if (lobby.lobbyFull() == 1) {
+        if (lobby.lobbyFull()) {
             return responseCenter.badRequest("Lobby is full");
         }
         return responseCenter.ok();
