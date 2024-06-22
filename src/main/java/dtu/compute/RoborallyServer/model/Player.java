@@ -102,7 +102,7 @@ public class Player {
         drawPile = new ArrayList<CommandCard>();
         discardPile = new ArrayList<CommandCard>();
         int[] commandValues = {0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6, 7, 8};
-        //int[] commandValues = {14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14};
+        //int[] commandValues = {13, 13, 13, 14, 14, 14, 15, 15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18};
         for (int commandValue : commandValues) {
             drawPile.add(new CommandCard(commands[commandValue]));
         }
@@ -128,6 +128,9 @@ public class Player {
         for (int i = 0; i < permanentUpgrades.length; i++) {
             permanentUpgrades[i] = new UpgradeCardField();
         }
+        permanentUpgrades[0].setCard(new UpgradeCard(Upgrade.CORRUPTION_WAVE));
+        permanentUpgrades[1].setCard(new UpgradeCard(Upgrade.BLUE_SCREEN_OF_DEATH));
+        permanentUpgrades[2].setCard(new UpgradeCard(Upgrade.DEFLECTOR_SHIELD));
     }
 
     public void shuffleDrawPile() {
