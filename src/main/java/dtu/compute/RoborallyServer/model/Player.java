@@ -30,8 +30,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dtu.compute.RoborallyServer.model.Command.SPAM;
-import static dtu.compute.RoborallyServer.model.Command.WORM;
+import static dtu.compute.RoborallyServer.model.Command.*;
 import static dtu.compute.RoborallyServer.model.Heading.SOUTH;
 
 /**
@@ -228,13 +227,12 @@ public class Player {
      */
     public void reboot(GameController gameController) {
         rebooting = true;
-        addCommandCard(new CommandCard(SPAM));
-        addCommandCard(new CommandCard(SPAM));
-
+        if (!hasActiveUpgrade(Upgrade.FIREWALL)) {
+            addCommandCard(new CommandCard(SPAM));
+            addCommandCard(new CommandCard(SPAM));
+        }
 
         gameController.moveToSpace(this, board.getRebootStation(), board.getRebootStationHeading());
-            // TODO: What to do if the reboot station is blocked and it can't push? Move to start space?
-        // TODO: Player should choose heading
     }
 
     /**
@@ -244,6 +242,26 @@ public class Player {
     public boolean buyUpgradeCard(UpgradeCard upgrade) {
         if (energyCubes < upgrade.getCost()) {
             return false;
+        }
+        switch (upgrade.upgrade) {
+            case ENERGY_ROUTINE:
+                discardCommandCard(new CommandCard(ENERGY_ROUTINE));
+                return true;
+            case REPEAT_ROUTINE:
+                discardCommandCard(new CommandCard(REPEAT_ROUTINE));
+                return true;
+            case SANDBOX_ROUTINE:
+                discardCommandCard(new CommandCard(SANDBOX_ROUTINE));
+                return true;
+            case SPAM_FOLDER_ROUTINE:
+                discardCommandCard(new CommandCard(SPAM_FOLDER));
+                return true;
+            case SPEED_ROUTINE:
+                discardCommandCard(new CommandCard(SPEED_ROUTINE));
+                return true;
+            case WEASEL_ROUTINE:
+                discardCommandCard(new CommandCard(WEASEL_ROUTINE));
+                return true;
         }
         for (UpgradeCardField field : (upgrade.getIsPermanent() ? permanentUpgrades : temporaryUpgrades)) {
             if (field.getCard() == null) {
@@ -262,10 +280,38 @@ public class Player {
         }
     }
 
-    public void toggleUpgradeCard(int index, boolean isPermanent) {
-        UpgradeCardField field = (isPermanent ? permanentUpgrades : temporaryUpgrades)[index];
+    public void togglePermanentUpgradeCard(int index) {
+        UpgradeCardField field = permanentUpgrades[index];
         if (field.getCard() != null) {
             field.getCard().toggle();
+        }
+    }
+
+    public void useTemporaryUpgradeCard(int index) {
+        UpgradeCardField field = temporaryUpgrades[index];
+        if (field.getCard() != null) {
+            Upgrade upgrade = field.getCard().upgrade;
+            switch (upgrade) {
+                case RECHARGE:
+                    addEnergyCubes(3);
+                    break;
+                case RECOMPILE:
+                    for (CommandCardField cardField : cards) {
+                        if (cardField.getCard() != null) {
+                            discardCommandCard(cardField.getCard());
+                            cardField.setCard(drawCommandCard());
+                        }
+                    }
+                    break;
+                case SPAM_BLOCKER:
+                    for (CommandCardField cardField : cards) {
+                        if (cardField.getCard() != null && cardField.getCard().command == SPAM) {
+                            cardField.setCard(drawCommandCard());
+                        }
+                    }
+                    break;
+            }
+            field.setCard(null);
         }
     }
 
@@ -295,6 +341,11 @@ public class Player {
                     (Math.abs(aggressor.space.x - space.x + aggressor.space.y - space.y) < 2) &&
                     damageType == SPAM) {
                 addCommandCard(new CommandCard(WORM));
+                return;
+            }
+            if (aggressor.hasActiveUpgrade(Upgrade.TROJAN_NEEDLER) && damageType == SPAM) {
+                addCommandCard(new CommandCard(TROJAN_HORSE));
+                return;
             }
 
             if (aggressor.hasActiveUpgrade(Upgrade.CORRUPTION_WAVE) && damageType == SPAM) {

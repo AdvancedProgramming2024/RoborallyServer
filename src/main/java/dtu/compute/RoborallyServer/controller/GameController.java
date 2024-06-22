@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static dtu.compute.RoborallyServer.model.Command.SPAM;
+import static dtu.compute.RoborallyServer.model.Command.VIRUS;
 
 /**
  * ...
@@ -153,6 +154,12 @@ public class GameController {
             if (target != null) {
                 if (target == space) throw new ImpossibleMoveException(player, space, heading);
 
+                if (player.hasActiveUpgrade(Upgrade.RAMMING_GEAR)) {
+                    target.getPlayer().takeDamage(player, SPAM);
+                }
+                if (player.hasActiveUpgrade(Upgrade.VIRUS_MODULE)) {
+                    target.getPlayer().takeDamage(player, VIRUS);
+                }
                 move(other, target, heading);
 
                 assert target.getPlayer() == null : target; // make sure target is free now
@@ -365,11 +372,12 @@ public class GameController {
 
     private void shootRobotLaser(Heading heading, int playerIndex) {
         List<Space> LOS = new ArrayList<>();
-        Space space = board.getPlayer(playerIndex).getSpace().board.getNeighbour(board.getPlayer(playerIndex).getSpace(), heading);
+        Player shooter = board.getPlayer(playerIndex);
+        Space space = board.getPlayer(playerIndex).getSpace().board.getNeighbour(shooter.getSpace(), heading);
 
         if (space != null) {
             LOS = board.getLOS(space, heading, LOS);
-            if (LOS.get(0).equals(board.getPlayer(playerIndex).getSpace())) {
+            if (LOS.get(0).equals(shooter.getSpace())) {
                 return;
             }
 
@@ -383,25 +391,20 @@ public class GameController {
 
                 if (player != null) {
                     if (!player.hasActiveUpgrade(Upgrade.DEFLECTOR_SHIELD)) {
-                        player.takeDamage(board.getPlayer(playerIndex), SPAM);
-                        if (board.getPlayer(playerIndex).hasActiveUpgrade(Upgrade.DOUBLE_BARREL_LASER)) {
-                            player.takeDamage(board.getPlayer(playerIndex), SPAM);
+                        player.takeDamage(shooter, SPAM);
+                        if (shooter.hasActiveUpgrade(Upgrade.DOUBLE_BARREL_LASER)) {
+                            player.takeDamage(shooter, SPAM);
                         }
-                        if (board.getPlayer(playerIndex).hasActiveUpgrade(Upgrade.PRESSOR_BEAM)) {
+                        if (shooter.hasActiveUpgrade(Upgrade.PRESSOR_BEAM)) {
                             moveInDirection(player, heading, true);
                         }
-                        if (board.getPlayer(playerIndex).hasActiveUpgrade(Upgrade.TRACTOR_BEAM) &&
-                                Math.abs(player.getSpace().x - board.getPlayer(playerIndex).getSpace().x +
-                                        player.getSpace().y - board.getPlayer(playerIndex).getSpace().y) > 1) {
+                        if (shooter.hasActiveUpgrade(Upgrade.TRACTOR_BEAM) &&
+                                Math.abs(player.getSpace().x - shooter.getSpace().x +
+                                        player.getSpace().y - shooter.getSpace().y) > 1) {
                             moveInDirection(player, heading.next().next(), true);
                         }
-                        if (board.getPlayer(playerIndex).hasActiveUpgrade(Upgrade.MINI_HOWITZER)) {
-                            player.takeDamage(board.getPlayer(playerIndex), SPAM);
-                            player.takeDamage(board.getPlayer(playerIndex), SPAM);
-                            moveInDirection(player, heading, true);
-                        }
+                        System.out.println("Headshot!");
                     }
-                    System.out.println("Headshot!");
                 }
             }
         }

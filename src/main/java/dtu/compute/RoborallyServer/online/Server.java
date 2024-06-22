@@ -373,8 +373,8 @@ public class Server {
         return responseCenter.ok();
     }
 
-    @PostMapping(ResourceLocation.toggleUpgrade)
-    public ResponseEntity<String> toggleUpgrade(@PathVariable String lobbyId, @PathVariable int playerId, @RequestBody String stringInfo) {
+    @PostMapping(ResourceLocation.activateUpgrade)
+    public ResponseEntity<String> activateUpgrade(@PathVariable String lobbyId, @PathVariable int playerId, @RequestBody String stringInfo) {
         Lobby lobby = lobbies.stream().filter(l -> l.getID().contentEquals(lobbyId)).findFirst().orElse(null);
         JsonObject info = (JsonObject)jsonParser.parse(stringInfo);
         int index = info.get("index").getAsInt();
@@ -383,7 +383,11 @@ public class Server {
         GameController gameController = lobby.getGameServer().getGameController();
 
         Player player = gameController.board.getPlayer(playerId);
-        player.toggleUpgradeCard(index, permanent);
+        if (permanent) {
+            player.togglePermanentUpgradeCard(index);
+        } else {
+            player.useTemporaryUpgradeCard(index);
+        }
         gameController.server.updateGameState();
         return responseCenter.ok();
     }
