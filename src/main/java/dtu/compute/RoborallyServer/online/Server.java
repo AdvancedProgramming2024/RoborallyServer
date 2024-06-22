@@ -142,17 +142,14 @@ public class Server {
         if (lobby == null) {
             return responseCenter.notFound();
         }
-
         if (!playerName.equals(lobby.getPlayers().get(0))) {
             return responseCenter.badRequest(asJson("Only player 1 can start the game"));
         }
-
         if (!lobby.startGame(mapName)) {
             return responseCenter.badRequest(asJson("There should be 2-6 players to start the game"));
         }
 
         JsonObject response = new JsonObject();
-
         try {
             while (lobby.getGameServer() == null) Thread.sleep(100);
             while (lobby.getGameServer().getGameState() == null) Thread.sleep(100);
@@ -178,11 +175,9 @@ public class Server {
 
         JsonObject response = new JsonObject();
         GameTemplate gameState = lobby.getGameServer().getGameState(playerName);
-
         if (gameState == null) {
             return responseCenter.badRequest(asJson("No new game state available"));
         }
-
         response.addProperty("gameState", gson.toJson(gameState));
 
         JsonArray lasers = new JsonArray();
