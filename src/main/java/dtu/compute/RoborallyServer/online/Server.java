@@ -80,6 +80,19 @@ public class Server {
         return responseCenter.ok();
     }
 
+    @GetMapping(ResourceLocation.joinLobby)
+    public ResponseEntity<String> lobbyFullInquiry(@PathVariable String lobbyId) {
+        Lobby lobby = lobbies.stream().filter(l -> l.getID().contentEquals(lobbyId)).findFirst().orElse(null);
+        if (lobby == null) {
+            return responseCenter.notFound();
+        }
+
+        if (lobby.lobbyFull() == 1) {
+            return responseCenter.badRequest("Lobby is full");
+        }
+        return responseCenter.ok();
+    }
+
     @PostMapping(ResourceLocation.joinLobby)
     public ResponseEntity<String> joinGameRequest(@PathVariable String lobbyId, @RequestBody String stringInfo) {
         JsonObject info = (JsonObject)jsonParser.parse(stringInfo);
