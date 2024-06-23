@@ -128,9 +128,6 @@ public class Player {
         for (int i = 0; i < permanentUpgrades.length; i++) {
             permanentUpgrades[i] = new UpgradeCardField();
         }
-        permanentUpgrades[0].setCard(new UpgradeCard(Upgrade.CORRUPTION_WAVE));
-        permanentUpgrades[1].setCard(new UpgradeCard(Upgrade.BLUE_SCREEN_OF_DEATH));
-        permanentUpgrades[2].setCard(new UpgradeCard(Upgrade.DEFLECTOR_SHIELD));
     }
 
     public void shuffleDrawPile() {
@@ -248,22 +245,22 @@ public class Player {
         }
         switch (upgrade.upgrade) {
             case ENERGY_ROUTINE:
-                discardCommandCard(new CommandCard(ENERGY_ROUTINE));
+                addCommandCard(new CommandCard(ENERGY_ROUTINE));
                 return true;
             case REPEAT_ROUTINE:
-                discardCommandCard(new CommandCard(REPEAT_ROUTINE));
+                addCommandCard(new CommandCard(REPEAT_ROUTINE));
                 return true;
             case SANDBOX_ROUTINE:
-                discardCommandCard(new CommandCard(SANDBOX_ROUTINE));
+                addCommandCard(new CommandCard(SANDBOX_ROUTINE));
                 return true;
             case SPAM_FOLDER_ROUTINE:
-                discardCommandCard(new CommandCard(SPAM_FOLDER));
+                addCommandCard(new CommandCard(SPAM_FOLDER));
                 return true;
             case SPEED_ROUTINE:
-                discardCommandCard(new CommandCard(SPEED_ROUTINE));
+                addCommandCard(new CommandCard(SPEED_ROUTINE));
                 return true;
             case WEASEL_ROUTINE:
-                discardCommandCard(new CommandCard(WEASEL_ROUTINE));
+                addCommandCard(new CommandCard(WEASEL_ROUTINE));
                 return true;
         }
         for (UpgradeCardField field : (upgrade.getIsPermanent() ? permanentUpgrades : temporaryUpgrades)) {
@@ -335,9 +332,9 @@ public class Player {
 
     public void takeDamage(Player aggressor, Command damageType) {
         if (aggressor != null) {
-            if (aggressor.hasActiveUpgrade(Upgrade.SCRAMBLER) && board.getStep() < 5) {
-                discardCommandCard(getProgramField(board.getStep()).getCard()); // Step has already been incremented
-                getProgramField(board.getStep()).setCard(drawCommandCard());
+            if (aggressor.hasActiveUpgrade(Upgrade.SCRAMBLER) && board.getStep() < 4) {
+                discardCommandCard(getProgramField(board.getStep()+1).getCard());
+                getProgramField(board.getStep()+1).setCard(drawCommandCard());
             }
 
             if (aggressor.hasActiveUpgrade(Upgrade.BLUE_SCREEN_OF_DEATH) &&
@@ -352,25 +349,17 @@ public class Player {
             }
 
             if (aggressor.hasActiveUpgrade(Upgrade.CORRUPTION_WAVE) && damageType == SPAM) {
-                drawPile.add(0, new CommandCard(SPAM));
+                drawPile.add(0, new CommandCard(damageType));
                 return;
             }
         }
         addCommandCard(new CommandCard(damageType));
     }
 
-    public boolean isRebooting() {
-        return rebooting;
-    }
-
     public void stopRebooting() {
         rebooting = false;
     }
 
-    // For save and load
-    public void setRebooting(boolean rebooting) {
-        this.rebooting = rebooting;
-    }
 
     public CommandCardField getProgramField(int i) {
         return program[i];
@@ -378,22 +367,6 @@ public class Player {
 
     public CommandCardField getCardField(int i) {
         return cards[i];
-    }
-
-    public List<CommandCard> getDrawPile() {
-        return drawPile;
-    }
-
-    public List<CommandCard> getDiscardPile() {
-        return discardPile;
-    }
-
-    public CommandCardField[] getProgram() {
-        return program;
-    }
-
-    public CommandCardField[] getCards() {
-        return cards;
     }
 
 }

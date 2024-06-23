@@ -155,10 +155,10 @@ public class GameController {
                 if (target == space) throw new ImpossibleMoveException(player, space, heading);
 
                 if (player.hasActiveUpgrade(Upgrade.RAMMING_GEAR)) {
-                    target.getPlayer().takeDamage(player, SPAM);
+                    other.takeDamage(player, SPAM);
                 }
                 if (player.hasActiveUpgrade(Upgrade.VIRUS_MODULE)) {
-                    target.getPlayer().takeDamage(player, VIRUS);
+                    other.takeDamage(player, VIRUS);
                 }
                 move(other, target, heading);
 
@@ -390,21 +390,19 @@ public class GameController {
                 Player player = hit.getPlayer();
 
                 if (player != null) {
-                    if (!player.hasActiveUpgrade(Upgrade.DEFLECTOR_SHIELD)) {
+                    player.takeDamage(shooter, SPAM);
+                    if (shooter.hasActiveUpgrade(Upgrade.DOUBLE_BARREL_LASER)) {
                         player.takeDamage(shooter, SPAM);
-                        if (shooter.hasActiveUpgrade(Upgrade.DOUBLE_BARREL_LASER)) {
-                            player.takeDamage(shooter, SPAM);
-                        }
-                        if (shooter.hasActiveUpgrade(Upgrade.PRESSOR_BEAM)) {
-                            moveInDirection(player, heading, true);
-                        }
-                        if (shooter.hasActiveUpgrade(Upgrade.TRACTOR_BEAM) &&
-                                Math.abs(player.getSpace().x - shooter.getSpace().x +
-                                        player.getSpace().y - shooter.getSpace().y) > 1) {
-                            moveInDirection(player, heading.next().next(), true);
-                        }
-                        System.out.println("Headshot!");
                     }
+                    if (shooter.hasActiveUpgrade(Upgrade.PRESSOR_BEAM)) {
+                        moveInDirection(player, heading, true);
+                    }
+                    if (shooter.hasActiveUpgrade(Upgrade.TRACTOR_BEAM) &&
+                            Math.abs(player.getSpace().x - shooter.getSpace().x +
+                                    player.getSpace().y - shooter.getSpace().y) > 1) {
+                        moveInDirection(player, heading.next().next(), true);
+                    }
+                    System.out.println("Headshot!");
                 }
             }
         }
