@@ -33,7 +33,7 @@ public class Lobby {
     }
 
     public boolean lobbyFull() {
-        return players.size() > 6;
+        return players.size() >= 6;
     }
 
     public void removePlayer(String playerName) {
