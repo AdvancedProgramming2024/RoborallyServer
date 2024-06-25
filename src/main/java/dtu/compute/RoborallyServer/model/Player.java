@@ -102,7 +102,7 @@ public class Player {
         drawPile = new ArrayList<CommandCard>();
         discardPile = new ArrayList<CommandCard>();
         int[] commandValues = {0, 0, 0, 0, 1, 1, 1, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6, 7, 8};
-        //int[] commandValues = {13, 13, 13, 14, 14, 14, 15, 15, 15, 16, 16, 16, 17, 17, 17, 18, 18, 18};
+        //int[] commandValues = {12, 13, 13, 11, 14, 14, 10, 15, 15, 9, 16, 16, 9, 17, 17, 9, 18, 18};
         for (int commandValue : commandValues) {
             drawPile.add(new CommandCard(commands[commandValue]));
         }
@@ -246,21 +246,27 @@ public class Player {
         switch (upgrade.upgrade) {
             case ENERGY_ROUTINE:
                 addCommandCard(new CommandCard(ENERGY_ROUTINE));
+                removeEnergyCubes(upgrade.getCost());
                 return true;
             case REPEAT_ROUTINE:
                 addCommandCard(new CommandCard(REPEAT_ROUTINE));
+                removeEnergyCubes(upgrade.getCost());
                 return true;
             case SANDBOX_ROUTINE:
                 addCommandCard(new CommandCard(SANDBOX_ROUTINE));
+                removeEnergyCubes(upgrade.getCost());
                 return true;
             case SPAM_FOLDER_ROUTINE:
                 addCommandCard(new CommandCard(SPAM_FOLDER));
+                removeEnergyCubes(upgrade.getCost());
                 return true;
             case SPEED_ROUTINE:
                 addCommandCard(new CommandCard(SPEED_ROUTINE));
+                removeEnergyCubes(upgrade.getCost());
                 return true;
             case WEASEL_ROUTINE:
                 addCommandCard(new CommandCard(WEASEL_ROUTINE));
+                removeEnergyCubes(upgrade.getCost());
                 return true;
         }
         for (UpgradeCardField field : (upgrade.getIsPermanent() ? permanentUpgrades : temporaryUpgrades)) {
